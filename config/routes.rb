@@ -1,4 +1,25 @@
 Ex0404BankAjax::Application.routes.draw do
+
+  resources :accounts
+
+  # ------ (rails g controller accounts) Generated code ------------ #
+  
+  # get "accounts/index"
+  # 
+  # get "accounts/show"
+  # 
+  # get "accounts/new"
+  # 
+  # get "accounts/create"
+  # 
+  # get "accounts/edit"
+  # 
+  # get "accounts/update"
+  # 
+  # get "accounts/destroy"
+
+  # ------  (rails new) generated code ----------------------------- #
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
