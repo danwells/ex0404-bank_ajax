@@ -1,6 +1,8 @@
 Ex0404BankAjax::Application.routes.draw do
 
   resources :accounts
+  
+  root :to => 'accounts#index'
 
   # ------ (rails g controller accounts) Generated code ------------ #
   
