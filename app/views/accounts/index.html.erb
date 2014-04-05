@@ -9,7 +9,7 @@
     <ul id="acct_list">
       <% @accounts.each do |acct| %>
         <li>
-          <%= link_to acct.name, account_path(acct.id), id: "show_acct_link" %>
+          <%= link_to acct.name, account_path(acct.id), class: "show_acct_link" %>
           <%= ".......................   $" + acct.balance.to_s  %>
         </li>
       <% end %>
@@ -19,6 +19,6 @@
 
   <hr>
 
-  <p>Withdraw/Transfer - Button goes here</p>
-  <p>Deposti - Button goes here</p>
+    <%= button_to "Withdraw/Transfer", wd_xfer_path, method: :get, id: "accts_deposit_link" %>
+    <%= button_to "Desposit", deposit_path, method: :get, id: "accts_deposit_link" %>
 </div>

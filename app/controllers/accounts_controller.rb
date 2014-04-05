@@ -22,4 +22,10 @@ class AccountsController < ApplicationController
 
   def destroy
   end
+  
+  def wd_xfer
+  end
+  
+  def deposit
+  end
 end

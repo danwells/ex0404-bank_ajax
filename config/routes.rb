@@ -1,7 +1,12 @@
 Ex0404BankAjax::Application.routes.draw do
 
-  resources :accounts
   
+  get "accounts/wd_xfer" => "accounts#wd_xfer", :as => :wd_xfer
+  
+  get "accounts/deposit" => "accounts#deposit", :as => :deposit
+  
+  resources :accounts
+
   root :to => 'accounts#index'
 
   # ------ (rails g controller accounts) Generated code ------------ #
