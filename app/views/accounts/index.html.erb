@@ -5,7 +5,7 @@
     <%= button_to "New Account", new_account_path, method: :get, id: "new_acct_link" %>
   </div>
   
-  <div class="acct_data clear">
+  <div id="list_acct_div" class="clear">
     <ul id="acct_list">
       <% @accounts.each do |acct| %>
         <li>
@@ -18,7 +18,14 @@
   </div>
 
   <hr>
+  
+  <div id="wd_xfer_acct_div">
 
-    <%= button_to "Withdraw/Transfer", wd_xfer_path, method: :get, id: "accts_deposit_link" %>
-    <%= button_to "Desposit", deposit_path, method: :get, id: "accts_deposit_link" %>
+    <button><%= link_to "Withdraw/Transfer", edit_account_path(0, :trans_type => "wd_xfer"), method: :get, id: "accts_wd_xfer_link" %></button>
+  </div>
+  
+  <div id="deposit_acct_div">
+    <button><%= link_to "Desposit", edit_account_path(0, :trans_type => "deposit"), method: :get, id: "accts_deposit_link" %></button>
+  </div>
+  
 </div>

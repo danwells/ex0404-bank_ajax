@@ -1,2 +1,16 @@
-<h1>Accounts#edit</h1>
-<p>Find me in app/views/accounts/edit.html.erb</p>
+<% if (@trans_type == "deposit") %>
+  <h1>Deposit</h1>
+  <div id="deposit_acct_form">
+    <%= form_for :account, url: {:action => "update"}, method: :put do  |f| %>
+      <%= collection_select(:account, :id, Account.all, :id, :name) %>
+      <p>
+        <%= label_tag "ammount", "Deposit $" %>
+        <%= text_field_tag "ammount", nil, :placeholder => "Deposit Amount"%>
+      </p>
+      <%= f.submit "Deposit" %>
+    <% end %>
+  </div>
+<% else %>
+  <h1>Withdraw/Transfer</h1>
+<% end %>
+

@@ -1,9 +1,9 @@
 Ex0404BankAjax::Application.routes.draw do
 
   
-  get "accounts/wd_xfer" => "accounts#wd_xfer", :as => :wd_xfer
-  
-  get "accounts/deposit" => "accounts#deposit", :as => :deposit
+  # get "accounts/wd_xfer" => "accounts#wd_xfer", :as => :wd_xfer
+  # 
+  # get "deposit" => "accounts#deposit", :as => :deposit
   
   resources :accounts
 

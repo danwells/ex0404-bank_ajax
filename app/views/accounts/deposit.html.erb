@@ -1,2 +1,12 @@
-<h1>Accounts#deposit</h1>
-<p>Find me in app/views/accounts/deposit.html.erb</p>
+<h1>Deposit Transaction</h1>
+
+<div id="deposit_acct_form">
+  <%= form_tag('/account', method: :put, {:id => "anID"})  do %>
+    <%= collection_select(:account, :id, Account.all, :id, :name) %>
+    <p>
+      <%= label_tag :balance, "Deposit $" %>
+      <%= text_field_tag :balance, :placeholder => "Deposit Amount"%>
+    </p>
+    <%= submit_tag "Deposit" %>
+  <% end %>
+</div>
