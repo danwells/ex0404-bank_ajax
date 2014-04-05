@@ -1,17 +1,24 @@
 <h1>Bank Accounts</h1>
 
-<p>Add Account - Button goes here</p>
+<div id="acct_hub">
+  <div id="new_acct_div">
+    <%= button_to "New Account", new_account_path, method: :get, id: "new_acct_link" %>
+  </div>
+  
+  <div class="acct_data clear">
+    <ul id="acct_list">
+      <% @accounts.each do |acct| %>
+        <li>
+          <%= link_to acct.name, account_path(acct.id), id: "show_acct_link" %>
+          <%= ".......................   $" + acct.balance.to_s  %>
+        </li>
+      <% end %>
+    </ul>
+    <div id="accts_total">TOTAL $<%= @net_total.to_s %></div>
+  </div>
 
-<div class="acct_list">
-  <ul>
-    <% @accounts.each do |acct| %>
-      <li><%= acct.name + "\t$" + acct.balance.to_s  %></li>
-    <% end %>
-  </ul>
-  <div id="accts_total">TOTAL $999.99</div>
+  <hr>
+
+  <p>Withdraw/Transfer - Button goes here</p>
+  <p>Deposti - Button goes here</p>
 </div>
-
-<hr>
-
-<p>Withdraw/Transfer - Button goes here</p>
-<p>Deposti - Button goes here</p>

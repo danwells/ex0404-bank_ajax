@@ -1,0 +1,36 @@
+/* Utilities */
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+/* Accounts views */
+#acct_hub {
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+#acct_list {
+  display: inline-block;
+  float: left;
+  overflow: hidden;
+  padding: 0;
+  margin: 10px;
+  border: 1px solid green;
+  text-align: justify;
+}
+
+
+#accts_total {
+  display: inline-block;
+  float: left;
+  border: 1px dotted blue;
+  padding: 30px;
+}

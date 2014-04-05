@@ -1,6 +1,8 @@
 class AccountsController < ApplicationController
   def index
     @accounts = Account.all
+    @net_total = 0
+    @accounts.each { |a| @net_total += a.balance }
   end
 
   def show
