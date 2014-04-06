@@ -10,29 +10,56 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
+    
+    respond_to do |format|
+      format.html  #new.html.erb
+      format.js  #new.js.erb
+    end
   end
 
   def create
     # binding.pry
-    @account = Account.new(params[:account])
+    @account = Account.new(params[:account])  
+    # need to set up validation for the balance being a number
+    
     if @account.save 
-      redirect_to(:root)
+      respond_to do |format|
+        format.html {redirect_to :root}
+        format.js 
+      end
     else
-      render "new"
+      render action: "new"
     end
+    
+    # if @account.save 
+    #   redirect_to(:root)
+    # else
+    #   render "new"
+    # end
   end
 
   def edit
     # binding.pry
     @trans_type = params[:trans_type]
     @account = Account.find(1)
+
+    respond_to do |format|
+      format.html  #edit.html.erb
+      format.js  #edit.js.erb
+    end
   end
 
   def update
     acct_to_update = Account.find(params[:account][:id])
     acct_to_update.balance += params[:ammount].to_f
     acct_to_update.save
-    redirect_to(:root)
+    
+    respond_to do |format|
+      format.html {redirect_to :root}
+      format.js
+    end
+    
+    # redirect_to(:root)
     # binding.pry
   end
 

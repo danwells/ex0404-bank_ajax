@@ -1,0 +1,25 @@
+<div class="page" id="transaction_page">
+
+  <% if (@trans_type == "deposit") %>
+    <h1>Deposit</h1>
+    <div class="acct_hub">
+      <div id="deposit_acct_form">
+        <%= form_for :account, url: {:action => "update"}, method: :put do  |f| %>
+          <%= collection_select(:account, :id, Account.all, :id, :name) %>
+          <p>
+            <%= label_tag "ammount", "Deposit $" %>
+            <%= text_field_tag "ammount", nil, :placeholder => "Deposit Amount"%>
+          </p>
+          <%= f.submit "Deposit" %>
+        <% end %>
+      </div>
+    </div>
+
+  <% else %>
+    <h1>Withdraw/Transfer</h1>
+    <div class="acct_hub">
+    </div>
+    
+  <% end %>
+
+</div>

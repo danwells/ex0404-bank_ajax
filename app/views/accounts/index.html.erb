@@ -1,31 +1,34 @@
-<h1>Bank Accounts</h1>
+<div class="page" id="main_page">
+  <h1>Bank Accounts</h1>
 
-<div id="acct_hub">
-  <div id="new_acct_div">
-    <%= button_to "New Account", new_account_path, method: :get, id: "new_acct_link" %>
-  </div>
+  <div class="acct_hub">
+    
+    <div id="new_acct_div">
+      <%= button_to "New Account", new_account_path, method: :get, id:  "new_acct_link", :remote => true %>
+    </div>
   
-  <div id="list_acct_div" class="clear">
-    <ul id="acct_list">
-      <% @accounts.each do |acct| %>
-        <li>
-          <%= link_to acct.name, account_path(acct.id), class: "show_acct_link" %>
-          <%= ".......................   $" + acct.balance.to_s  %>
-        </li>
-      <% end %>
-    </ul>
-    <div id="accts_total">TOTAL $<%= @net_total.to_s %></div>
-  </div>
+    <div id="list_acct_div" class="clear">
+      <ul id="acct_list">
+        <% @accounts.each do |acct| %>
+          <li>
+            <%= link_to acct.name, account_path(acct.id), class: "show_acct_link" %>
+            <%= ".......................   $" + acct.balance.to_s  %>
+          </li>
+        <% end %>
+      </ul>
+      <div id="accts_total">TOTAL $<%= @net_total.to_s %></div>
+    </div>
 
-  <hr>
+    <hr>
   
-  <div id="wd_xfer_acct_div">
+    <div id="wd_xfer_acct_div">
 
-    <button><%= link_to "Withdraw/Transfer", edit_account_path(0, :trans_type => "wd_xfer"), method: :get, id: "accts_wd_xfer_link" %></button>
-  </div>
+      <button><%= link_to "Withdraw/Transfer", edit_account_path(0, :trans_type => "wd_xfer"), method: :get, id: "accts_wd_xfer_link", :remote => true %></button>
+    </div>
   
-  <div id="deposit_acct_div">
-    <button><%= link_to "Desposit", edit_account_path(0, :trans_type => "deposit"), method: :get, id: "accts_deposit_link" %></button>
-  </div>
+    <div id="deposit_acct_div">
+      <button><%= link_to "Desposit", edit_account_path(0, :trans_type => "deposit"), method: :get, id: "accts_deposit_link", :remote => true %></button>
+    </div>
   
+  </div>
 </div>
